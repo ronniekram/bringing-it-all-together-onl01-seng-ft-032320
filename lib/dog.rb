@@ -61,12 +61,12 @@ class Dog
   def self.find_or_create_by(name:, breed:)
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
     if dog
-      dog = self.new_from_db(row)
+      new = self.new_from_db(row)
     else
-      dog = self.create(name: name, breed: breed)
+      new = self.create(name: name, breed: breed)
     end
 
-    dog
+    new
   end 
 
   def self.find_by_name(name)
