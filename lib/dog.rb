@@ -43,15 +43,10 @@ class Dog
 
     def self.new_from_db(row)
       dog_hash = {
-        id: row[0]
-        name: row[1]
-        breed: row[2]
+        id: => row[0]
+        name: => row[1]
+        breed: => row[2]
       }
-      dog = Dog.new(id, name, breed) 
-      dog.id = row[0]
-      dog.name = row[1]
-      dog.breed = row[2]
-      dog 
     end 
 
   def self.find_by_id(id)
