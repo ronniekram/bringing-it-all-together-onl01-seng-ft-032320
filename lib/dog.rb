@@ -65,7 +65,7 @@ class Dog
     else
       new = self.create(name: name, breed: breed)
     end
-    new.id
+    new
   end 
 
   def self.find_by_name(name)
