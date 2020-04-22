@@ -41,13 +41,15 @@ class Dog
       dog.save
     end 
 
-    def self.new_from_db(row)
-      dog_hash = {
+  def self.new_from_db(row)
+    dog_hash = {
         id: => row[0]
         name: => row[1]
         breed: => row[2]
-      }
-    end 
+    }
+    
+    self.new(dog_hash)
+  end 
 
   def self.find_by_id(id)
       sql = "SELECT * FROM dogs WHERE id = ?"
